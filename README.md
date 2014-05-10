@@ -1,0 +1,4 @@
+eggly
+=====
+
+AngularJS bookmark manager.
