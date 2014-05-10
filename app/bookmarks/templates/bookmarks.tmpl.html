@@ -1,0 +1,3 @@
+<div edit-bookmark bookmark="bookmark"  ng-repeat="bookmark in model.bookmarks | filter:{category:model.currentCategory.name}"></div>
+<hr/>
+<div ng-if="model.currentCategory" create-bookmark current-category="model.currentCategory"></div>

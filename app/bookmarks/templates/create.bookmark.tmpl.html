@@ -1,0 +1,15 @@
+<div class="createBookmark">
+    <button type="button" class="btn btn-link" ng-click="toggleCreating()"><span class="glyphicon glyphicon-plus"></span> Create Bookmark</button>
+    <form ng-show="model.isCreating" role="form" ng-submit="createBookmark()" novalidate>
+        <div class="form-group">
+            <label for="newBookmarkTitle">Bookmark Title</label>
+            <input type="text" class="form-control" id="newBookmarkTitle" ng-model="model.newBookmark.title" placeholder="Enter title">
+        </div>
+        <div class="form-group">
+            <label for="newBookmarkURL">Bookmark URL</label>
+            <input type="text" class="form-control" id="newBookmarkURL" ng-model="model.newBookmark.url" placeholder="Enter URL">
+        </div>
+        <button type="submit" class="btn btn-info btn-lg">Create</button>
+        <button type="button" class="btn btn-default btn-lg pull-right" ng-click="cancelCreating()">Cancel</button>
+    </form>
+</div>

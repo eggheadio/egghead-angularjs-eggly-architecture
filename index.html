@@ -1,0 +1,62 @@
+<!doctype html>
+<html ng-app="Eggly">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Eggly</title>
+
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="assets/css/eggly.css">
+        <link rel="stylesheet" href="assets/css/animations.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar" ui-view="categories"></div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ui-view="bookmarks"></div>
+            </div>
+        </div>
+
+        <script src="vendor/head.load.min.js"></script>
+        <script src="assets/js/boot.js"></script>
+    </body>
+
+    <script type="text/ng-template" id="edit.bookmark.tmpl.html">
+        <button type="button" class="close" ng-click="deleteBookmark(bookmark)">&times;</button>
+        <button type="button" class="btn btn-link" ng-click="toggleEditing()"><span class="glyphicon glyphicon-pencil"></span></button>
+        <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
+
+        <form class="edit-form my-show-hide-animation" ng-show="isEditing" role="form" ng-submit="updateBookmark()" novalidate>
+            <div class="form-group">
+                <label>Bookmark Title</label>
+                <input type="text" class="form-control" ng-model="editedBookmark.title" placeholder="Enter title">
+            </div>
+            <div class="form-group">
+                <label>Bookmark URL</label>
+                <input type="text" class="form-control" ng-model="editedBookmark.url" placeholder="Enter URL">
+            </div>
+            <button type="submit" class="btn btn-info btn-lg">Save</button>
+            <button type="button" class="btn btn-default btn-lg pull-right" ng-click="cancelEditing()">Cancel</button>
+        </form>
+    </script>
+
+    <script type="text/ng-template" id="create.bookmark.tmpl.html">
+        <div class="createBookmark">
+            <button type="button" class="btn btn-link" ng-click="toggleCreating()"><span class="glyphicon glyphicon-plus"></span> Create Bookmark</button>
+            <form class="create-form my-show-hide-animation" ng-show="model.isCreating" role="form" ng-submit="createBookmark()" novalidate>
+                <div class="form-group">
+                    <label for="newBookmarkTitle">Bookmark Title</label>
+                    <input type="text" class="form-control" id="newBookmarkTitle" ng-model="model.newBookmark.title" placeholder="Enter title">
+                </div>
+                <div class="form-group">
+                    <label for="newBookmarkURL">Bookmark URL</label>
+                    <input type="text" class="form-control" id="newBookmarkURL" ng-model="model.newBookmark.url" placeholder="Enter URL">
+                </div>
+                <button type="submit" class="btn btn-info btn-lg">Create</button>
+                <button type="button" class="btn btn-default btn-lg pull-right" ng-click="cancelCreating()">Cancel</button>
+            </form>
+        </div>
+    </script>
+</html>
