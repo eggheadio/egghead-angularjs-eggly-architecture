@@ -1,8 +1,4 @@
 function EditBookmarkDirective(bookmarks) {
-    var linker = function(scope, elem, attrs) {
-
-    };
-
     var controller = function($scope) {
         function toggleEditing() {
             $scope.isEditing = !$scope.isEditing;
@@ -28,7 +24,6 @@ function EditBookmarkDirective(bookmarks) {
 
     return {
         controller: controller,
-        link: linker,
         scope: {
             bookmark: '='
         },

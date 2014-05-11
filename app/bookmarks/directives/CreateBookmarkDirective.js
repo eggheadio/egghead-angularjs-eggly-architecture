@@ -27,7 +27,7 @@ function CreateBookmarkDirective(bookmarks) {
             model.newBookmark = {
                 title: '',
                 url: '',
-                category: $scope.currentCategory.name || ''
+                category: $scope.currentCategory.name
             };
         }
 
