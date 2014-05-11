@@ -1,11 +1,4 @@
 function EditBookmarkDirective(bookmarks) {
-<<<<<<< HEAD
-    var linker = function(scope, elem, attrs) {
-
-    };
-
-=======
->>>>>>> refs/heads/gh-pages
     var controller = function($scope) {
         function toggleEditing() {
             $scope.isEditing = !$scope.isEditing;
@@ -31,10 +24,6 @@ function EditBookmarkDirective(bookmarks) {
 
     return {
         controller: controller,
-<<<<<<< HEAD
-        link: linker,
-=======
->>>>>>> refs/heads/gh-pages
         scope: {
             bookmark: '='
         },

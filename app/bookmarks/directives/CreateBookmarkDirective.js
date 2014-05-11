@@ -27,11 +27,7 @@ function CreateBookmarkDirective(bookmarks) {
             model.newBookmark = {
                 title: '',
                 url: '',
-<<<<<<< HEAD
-                category: $scope.currentCategory.name || ''
-=======
                 category: $scope.currentCategory.name
->>>>>>> refs/heads/gh-pages
             };
         }
 
