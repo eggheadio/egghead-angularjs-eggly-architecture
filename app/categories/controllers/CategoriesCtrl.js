@@ -1,14 +1,10 @@
-function CategoriesCtrl($scope, categories, $stateParams) {
-    var currentCategory = categories.getCategoryByName($stateParams.category);
-
-    var model = {
-        categories: categories.getCategories(),
-        currentCategory: currentCategory
-    };
-
-    categories.setCurrentCategory(currentCategory);
-
-    $scope.model = model;
+function CategoriesCtrl($scope, $stateParams, categories) {
+    categories.getCategories()
+        .then(function (result) {
+            $scope.categories = result;
+            $scope.currentCategory = categories.getCategoryByName($stateParams.category);
+            categories.setCurrentCategory($scope.currentCategory);
+        });
 }
 
-CategoriesCtrl.$inject = ['$scope', 'CategoriesService', '$stateParams'];
+CategoriesCtrl.$inject = ['$scope', '$stateParams', 'CategoriesService'];

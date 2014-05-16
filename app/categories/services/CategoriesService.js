@@ -1,15 +1,15 @@
-function CategoriesService($rootScope) {
-    var categories = [
-        {id: 0, name: 'Development'},
-        {id: 1, name: 'Design'},
-        {id: 2, name: 'Exercise'},
-        {id: 3, name: 'Humor'}
-    ];
+function CategoriesService($rootScope, $http, $q) {
+    var URLS = {
+            FETCH: 'data/categories.json'
+        },
+        categories,
+        currentCategory;
 
-    var currentCategory = null;
-
+    // --------------------------------
+    // Public Methods
+    // --------------------------------
     var getCategories = function () {
-        return categories;
+        return (categories) ? $q.when( categories ) : $http.get(URLS.FETCH).then(cacheCategories);
     };
 
     var getCurrentCategory = function () {
@@ -33,11 +33,26 @@ function CategoriesService($rootScope) {
     };
 
     var getCategoryByName = function (categoryName) {
-        return _.find(categories, function(c) {
+        return _.find(categories, function (c) {
             return c.name == categoryName;
         });
     };
 
+    // --------------------------------
+    // Private Methods
+    // --------------------------------
+    var extract = function (result) {
+        return result.data;
+    };
+
+    function cacheCategories(result) {
+        categories = extract(result);
+        return categories;
+    };
+
+    // --------------------------------
+    // API
+    // --------------------------------
     return {
         getCategories: getCategories,
         createCategory: createCategory,
@@ -48,4 +63,4 @@ function CategoriesService($rootScope) {
     }
 }
 
-CategoriesService.$inject = ['$rootScope'];
+CategoriesService.$inject = ['$rootScope', '$http', '$q'];

@@ -1,14 +1,12 @@
 function BookmarksCtrl($scope, bookmarks, categories) {
-    var model = {
-        bookmarks: bookmarks.getBookmarks(),
-        currentCategory: categories.getCurrentCategory()
-    };
+    bookmarks.getBookmarks()
+        .then(function (result) {
+            $scope.bookmarks = result;
+        });
 
     $scope.$on('currentCategoryUpdated', function(){
-        model.currentCategory = categories.getCurrentCategory();
+        $scope.currentCategory = categories.getCurrentCategory();
     });
-
-    $scope.model = model;
 }
 
 BookmarksCtrl.$inject = ['$scope', 'BookmarksService', 'CategoriesService'];
