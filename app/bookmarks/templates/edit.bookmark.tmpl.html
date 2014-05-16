@@ -2,7 +2,7 @@
 <button type="button" class="btn btn-link" ng-click="toggleEditing()"><span class="glyphicon glyphicon-pencil"></span></button>
 <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
 
-<form ng-show="isEditing" role="form" ng-submit="updateBookmark()" novalidate>
+<form class="edit-form my-show-hide-animation" ng-show="isEditing" role="form" ng-submit="updateBookmark()" novalidate>
     <div class="form-group">
         <label>Bookmark Title</label>
         <input type="text" class="form-control" ng-model="editedBookmark.title" placeholder="Enter title">
