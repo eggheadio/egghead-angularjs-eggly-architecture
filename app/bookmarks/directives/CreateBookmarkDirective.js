@@ -1,37 +1,34 @@
 function CreateBookmarkDirective(bookmarks) {
     var controller = function ($scope) {
-        var model = {
-            isCreating: false,
-            newBookmark: {
-                title: '',
-                url: '',
-                category: $scope.currentCategory.name
-            }
+        $scope.isCreating = false;
+        $scope.newBookmark = {
+            title: '',
+            url: '',
+            category: $scope.currentCategory.name
         };
 
         function toggleCreating() {
-            model.isCreating = !model.isCreating;
+            $scope.isCreating = !$scope.isCreating;
         }
 
         function cancelCreating() {
-            model.isCreating = false;
+            $scope.isCreating = false;
             resetForm();
         }
 
         function createBookmark() {
-            bookmarks.createBookmark(model.newBookmark);
+            bookmarks.createBookmark($scope.newBookmark);
             resetForm();
         }
 
         function resetForm() {
-            model.newBookmark = {
+            $scope.newBookmark = {
                 title: '',
                 url: '',
                 category: $scope.currentCategory.name
             };
         }
 
-        $scope.model = model;
         $scope.toggleCreating = toggleCreating;
         $scope.cancelCreating = cancelCreating;
         $scope.createBookmark = createBookmark;
