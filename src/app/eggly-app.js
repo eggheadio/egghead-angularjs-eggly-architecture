@@ -7,18 +7,10 @@ angular.module('Eggly', [
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('eggly', {
-        url: '/',
-        views: {
-          'categories': {
-            controller: 'CategoriesCtrl',
-            templateUrl: 'app/categories/categories.tmpl.html'
-          },
-          'bookmarks': {
-            controller: 'BookmarksCtrl',
-            templateUrl: 'app/bookmarks/bookmarks.tmpl.html'
-          }
-        }
-      });
+        url: '',
+        abstract: true
+      })
+    ;
     $urlRouterProvider.otherwise('/');
   })
 

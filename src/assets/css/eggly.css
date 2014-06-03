@@ -70,6 +70,13 @@ https://kuler.adobe.com/Some-kind-of-hero-color-theme-3745773
     color: #2B2828;
 }
 
+.editing > button {
+    color: #5bc0de !important;
+}
+.editing > a {
+    color: #5bc0de !important;
+}
+
 .nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
     background-color: #D5DBD8;

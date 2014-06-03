@@ -1,6 +1,4 @@
-<button type="button" class="close" ng-click="deleteBookmark(bookmark)">&times;</button>
-<button type="button" class="btn btn-link" ng-click="toggleEditing()"><span class="glyphicon glyphicon-pencil"></span></button>
-<a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
+<h4>Editing {{bookmark.title}}</h4>
 
 <form class="edit-form my-show-hide-animation" ng-show="isEditing" role="form" ng-submit="updateBookmark()" novalidate>
     <div class="form-group">
