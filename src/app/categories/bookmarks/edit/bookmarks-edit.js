@@ -7,7 +7,7 @@ angular.module('categories.bookmarks.edit', [
         url: '/bookmarks/:bookmarkId/edit',
         views: {
           '@eggly.categories.bookmarks': {
-            templateUrl: '/app/categories/bookmarks/edit/edit.bookmark.tmpl.html',
+            templateUrl: 'app/categories/bookmarks/edit/edit.bookmark.tmpl.html',
             controller: 'EditBookmarkCtrl'
           }
         }
@@ -49,13 +49,9 @@ angular.module('categories.bookmarks.edit', [
       returnToBookmarks();
     }
 
-
-
-
     $scope.toggleEditing = toggleEditing;
     $scope.cancelEditing = cancelEditing;
     $scope.updateBookmark = updateBookmark;
-    $scope.deleteBookmark = bookmarks.deleteBookmark;
   })
 
 ;

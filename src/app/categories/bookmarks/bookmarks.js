@@ -18,7 +18,6 @@ angular.module('bookmarks', [
     ;
   })
   .controller('BookmarksCtrl', function BookmarksCtrl($scope, $stateParams, bookmarks, categories) {
-    console.log('bookmarks', $stateParams)
     categories.setCurrentCategory();
 
     if($stateParams.category) {
@@ -35,9 +34,10 @@ angular.module('bookmarks', [
     $scope.getCurrentCategory = categories.getCurrentCategory;
     $scope.getCurrentCategoryName = categories.getCurrentCategoryName;
     $scope.isSelectedBookmark = function(bookmarkId) {
-      console.log($stateParams.bookmarkId, bookmarkId)
       return $stateParams.bookmarkId == bookmarkId;
-    }
+    };
+
+    $scope.deleteBookmark = bookmarks.deleteBookmark;
   })
 ;
 
