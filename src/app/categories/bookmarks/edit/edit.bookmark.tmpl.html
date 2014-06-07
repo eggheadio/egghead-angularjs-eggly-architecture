@@ -1,6 +1,6 @@
 <h4>Editing {{bookmark.title}}</h4>
 
-<form class="edit-form my-show-hide-animation" ng-show="isEditing" role="form" ng-submit="updateBookmark()" novalidate>
+<form class="edit-form" ng-show="isEditing" role="form" ng-submit="updateBookmark()" novalidate>
     <div class="form-group">
         <label>Bookmark Title</label>
         <input type="text" class="form-control" ng-model="editedBookmark.title" placeholder="Enter title">
