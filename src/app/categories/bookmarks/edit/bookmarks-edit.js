@@ -24,8 +24,8 @@ angular.module('categories.bookmarks.edit', [
       })
     }
 
-    bookmarks.getBookmarkById($stateParams.bookmarkId).then(function(bookmark) {
-      if(bookmark) {
+    bookmarks.getBookmarkById($stateParams.bookmarkId).then(function (bookmark) {
+      if (bookmark) {
         $scope.isEditing = true;
         $scope.bookmark = bookmark;
         $scope.editedBookmark = angular.copy($scope.bookmark);

@@ -20,8 +20,8 @@ angular.module('bookmarks', [
   .controller('BookmarksCtrl', function BookmarksCtrl($scope, $stateParams, bookmarks, categories) {
     categories.setCurrentCategory();
 
-    if($stateParams.category) {
-      categories.getCategoryByName($stateParams.category).then(function(category) {
+    if ($stateParams.category) {
+      categories.getCategoryByName($stateParams.category).then(function (category) {
         categories.setCurrentCategory(category);
       })
     }
@@ -33,7 +33,7 @@ angular.module('bookmarks', [
 
     $scope.getCurrentCategory = categories.getCurrentCategory;
     $scope.getCurrentCategoryName = categories.getCurrentCategoryName;
-    $scope.isSelectedBookmark = function(bookmarkId) {
+    $scope.isSelectedBookmark = function (bookmarkId) {
       return $stateParams.bookmarkId == bookmarkId;
     };
 

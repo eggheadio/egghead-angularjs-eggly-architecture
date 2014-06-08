@@ -27,12 +27,12 @@ angular.module('eggly.models.bookmarks', [
       })
     }
 
-    bookmarksModel.getBookmarkById = function(bookmarkId) {
+    bookmarksModel.getBookmarkById = function (bookmarkId) {
       var deferred = $q.defer();
-      if(bookmarks) {
+      if (bookmarks) {
         deferred.resolve(findBookmark(bookmarkId))
       } else {
-        bookmarksModel.getBookmarks().then(function() {
+        bookmarksModel.getBookmarks().then(function () {
           deferred.resolve(findBookmark(bookmarkId))
         })
       }

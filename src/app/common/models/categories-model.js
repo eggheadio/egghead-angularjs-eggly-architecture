@@ -55,10 +55,10 @@ angular.module('eggly.models.categories', [
         })
       }
 
-      if(categories) {
+      if (categories) {
         deferred.resolve(findCategory());
       } else {
-        categoriesModel.getCategories().then(function() {
+        categoriesModel.getCategories().then(function () {
           deferred.resolve(findCategory());
         })
       }

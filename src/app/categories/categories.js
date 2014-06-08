@@ -26,7 +26,7 @@ angular.module('categories', [
         $scope.categories = result;
       });
 
-    $scope.isCurrentCategory = function(category) {
+    $scope.isCurrentCategory = function (category) {
       return category.name === $scope.getCurrentCategoryName()
     }
   })
