@@ -27,7 +27,7 @@ angular.module('categories', [
       });
 
     $scope.isCurrentCategory = function (category) {
-      return category.name === $scope.getCurrentCategoryName()
+      return category.name === $scope.getCurrentCategoryName();
     }
   })
 ;
