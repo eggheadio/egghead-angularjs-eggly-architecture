@@ -2,8 +2,6 @@ angular.module('Eggly', [
 
 ])
   .controller('MainCtrl', function ($scope) {
-
-
       $scope.categories = [
           {"id": 0, "name": "Development"},
           {"id": 1, "name": "Design"},
