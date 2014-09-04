@@ -121,6 +121,7 @@ angular.module('Eggly', [
 
       function cancelEditing() {
           $scope.isEditing = false;
+          $scope.editedBookmark = null;
       }
 
       $scope.startEditing = startEditing;

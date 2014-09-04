@@ -56,13 +56,18 @@ a:hover {
     padding: 0px;
 }
 
-.active {
+.sidebar .active {
     background-color: #D5DBD8;
 }
 
-.active > a {
+.sidebar .active > a {
     text-decoration: none;
     color: #2B2828;
+}
+
+.main .active span,
+.main .active > a {
+    color: #5bc0de;
 }
 
 .editing > button {

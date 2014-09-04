@@ -18,7 +18,8 @@ angular.module('eggly.models.bookmarks', [
     }
 
     bookmarksModel.getBookmarks = function () {
-      return (bookmarks) ? $q.when(bookmarks) : $http.get(URLS.FETCH).then(cacheBookmarks);
+      return (bookmarks) ? $q.when(bookmarks)
+          : $http.get(URLS.FETCH).then(cacheBookmarks);
     };
 
     function findBookmark(bookmarkId) {
