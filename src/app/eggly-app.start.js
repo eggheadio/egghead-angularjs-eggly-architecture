@@ -1,5 +1,6 @@
 angular.module('Eggly', [
-
+    'categories',
+    'categories.bookmarks'
 ])
     .config(function($stateProvider){
         $stateProvider
