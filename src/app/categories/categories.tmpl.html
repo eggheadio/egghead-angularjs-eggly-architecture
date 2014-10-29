@@ -1,0 +1,8 @@
+<a ng-click="setCurrentCategory(null)"><img class="logo" src="assets/img/eggly-logo.png"></a>
+<ul class="nav nav-sidebar">
+    <li ng-repeat="category in categories" ng-class="{'active':isCurrentCategory(category)}">
+        <a ng-click="setCurrentCategory(category)">
+            {{category.name}}
+        </a>
+    </li>
+</ul>
