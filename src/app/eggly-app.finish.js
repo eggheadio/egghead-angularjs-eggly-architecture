@@ -3,7 +3,7 @@ angular.module('Eggly', [
     'categories',
     'categories.bookmarks'
 ])
-    .config(function ($stateProvider) {
+    .config(function($stateProvider){
         $stateProvider
             .state('eggly', {
                 url: '/',
