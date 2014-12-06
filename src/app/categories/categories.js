@@ -1,7 +1,7 @@
 angular.module('categories', [
     'eggly.models.categories'
 ])
-    .config(function($stateProvider){
+    .config(function ($stateProvider) {
         $stateProvider
             .state('eggly.categories', {
                 url: '/',
@@ -9,16 +9,20 @@ angular.module('categories', [
                     'categories@': {
                         controller: 'CategoriesListCtrl as categoriesListCtrl',
                         templateUrl: 'app/categories/categories.tmpl.html'
+                    },
+                    'bookmarks@': {
+                        controller: 'BookmarksListCtrl as bookmarksListCtrl',
+                        templateUrl: 'app/categories/bookmarks/bookmarks.tmpl.html'
                     }
                 }
             })
         ;
     })
-    .controller('CategoriesListCtrl', function CategoriesListCtrl(CategoriesModel){
+    .controller('CategoriesListCtrl', function CategoriesListCtrl(CategoriesModel) {
         var categoriesListCtrl = this;
 
         CategoriesModel.getCategories()
-            .then(function(result){
+            .then(function (result) {
                 categoriesListCtrl.categories = result;
             });
     })
