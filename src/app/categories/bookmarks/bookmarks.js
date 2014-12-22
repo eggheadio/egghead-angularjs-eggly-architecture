@@ -8,6 +8,8 @@ angular.module('categories.bookmarks', [
         $stateProvider
             .state('eggly.categories.bookmarks', {
                 url: 'categories/:category',
+                //target the named 'ui-view' in ROOT (eggly) state named 'bookmarks'
+                //to show bookmarks for a specific category
                 views: {
                     'bookmarks@': {
                         templateUrl: 'app/categories/bookmarks/bookmarks.tmpl.html',
@@ -20,18 +22,11 @@ angular.module('categories.bookmarks', [
     .controller('BookmarksListCtrl', function ($stateParams, CategoriesModel, BookmarksModel) {
         var bookmarksListCtrl = this;
 
-        CategoriesModel.setCurrentCategory();
-
-        if ($stateParams.category) {
-            CategoriesModel.getCategoryByName($stateParams.category)
-                .then(function (category) {
-                    CategoriesModel.setCurrentCategory(category);
-                });
-        }
+        CategoriesModel.setCurrentCategory($stateParams.category);
 
         BookmarksModel.getBookmarks()
-            .then(function (result) {
-                bookmarksListCtrl.bookmarks = result;
+            .then(function (bookmarks) {
+                bookmarksListCtrl.bookmarks = bookmarks;
             });
 
         bookmarksListCtrl.getCurrentCategory = CategoriesModel.getCurrentCategory;

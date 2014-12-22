@@ -5,12 +5,9 @@ angular.module('categories.bookmarks.edit', [
         $stateProvider
             .state('eggly.categories.bookmarks.edit', {
                 url: '/bookmarks/:bookmarkId/edit',
-                views: {
-                    '@eggly.categories.bookmarks': {
-                        templateUrl: 'app/categories/bookmarks/edit/bookmark-edit.tmpl.html',
-                        controller: 'EditBookmarkCtrl as editBookmarkCtrl'
-                    }
-                }
+                //target the un-named 'ui-view' in PARENT states template
+                templateUrl: 'app/categories/bookmarks/edit/bookmark-edit.tmpl.html',
+                controller: 'EditBookmarkCtrl as editBookmarkCtrl'
             })
         ;
     })

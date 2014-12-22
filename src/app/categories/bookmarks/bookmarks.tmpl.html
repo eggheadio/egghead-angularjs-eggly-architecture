@@ -1,6 +1,6 @@
 <div ng-class="{active: isSelectedBookmark(bookmark.id)}"  ng-repeat="bookmark in bookmarksListCtrl.bookmarks | filter:{category:bookmarksListCtrl.getCurrentCategoryName()}">
     <button type="button" class="close" ng-click="deleteBookmark(bookmark)">&times;</button>
-    <button type="button" class="btn btn-link" ui-sref="eggly.categories.bookmarks.edit({category:bookmark.category, bookmarkId:bookmark.id})" ><span class="glyphicon glyphicon-pencil"></span>
+    <button type="button" class="btn btn-link" ui-sref="eggly.categories.bookmarks.edit({ bookmarkId:bookmark.id})" ><span class="glyphicon glyphicon-pencil"></span>
     </button>
     <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
 </div>
@@ -8,7 +8,7 @@
 <ui-view>
     <div ng-if="bookmarksListCtrl.getCurrentCategory()">
         <button type="button" class="btn btn-link"
-                ui-sref="eggly.categories.bookmarks.create({category:bookmarksListCtrl.getCurrentCategoryName()})">
+                ui-sref="eggly.categories.bookmarks.create">
             <span class="glyphicon glyphicon-plus"></span>
             Create Bookmark
         </button>
