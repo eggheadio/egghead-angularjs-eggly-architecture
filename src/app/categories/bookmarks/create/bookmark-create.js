@@ -5,12 +5,9 @@ angular.module('categories.bookmarks.create', [
         $stateProvider
             .state('eggly.categories.bookmarks.create', {
                 url: '/bookmarks/create',
-                views: {
-                    '@eggly.categories.bookmarks': {
-                        templateUrl: 'app/categories/bookmarks/create/bookmark-create.tmpl.html',
-                        controller: 'CreateBookMarkCtrl as createBookmarkCtrl'
-                    }
-                }
+                //target the un-named 'ui-view' in PARENT states template
+                templateUrl: 'app/categories/bookmarks/create/bookmark-create.tmpl.html',
+                controller: 'CreateBookMarkCtrl as createBookmarkCtrl'
             })
         ;
     })

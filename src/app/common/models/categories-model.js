@@ -23,7 +23,9 @@ angular.module('eggly.models.categories', [
         };
 
         model.setCurrentCategory = function(category) {
-            currentCategory = category;
+            return model.getCategoryByName(category).then(function(category) {
+                currentCategory = category;
+            })
         };
 
         model.getCurrentCategory = function() {
