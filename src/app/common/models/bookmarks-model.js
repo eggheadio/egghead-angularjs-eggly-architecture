@@ -22,7 +22,17 @@ angular.module('eggly.models.bookmarks', [])
         }
 
         model.getBookmarks = function () {
-            return $http.get(URLS.FETCH).then(cacheBookmarks);
+            var deferred = $q.defer();
+
+            if (bookmarks) {
+                deferred.resolve(bookmarks)
+            } else {
+                $http.get(URLS.FETCH).then(function(bookmarks){
+                    deferred.resolve(cacheBookmarks(bookmarks));
+                });
+            }
+
+            return deferred.promise;
         };
 
         model.getBookmarkById = function (bookmarkId) {
@@ -46,7 +56,7 @@ angular.module('eggly.models.bookmarks', [])
             var index = _.findIndex(bookmarks, function (b) {
                 return b.id == bookmark.id
             });
-            
+
             bookmarks[index] = bookmark;
         };
     })
