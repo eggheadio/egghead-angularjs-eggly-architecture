@@ -1,4 +1,4 @@
-<div ng-class="{active: bookmarksListCtrl.isSelectedBookmark(bookmark.id)}"  ng-repeat="bookmark in bookmarksListCtrl.bookmarks | filter:{category:bookmarksListCtrl.getCurrentCategoryName()}">
+<div ng-repeat="bookmark in bookmarksListCtrl.bookmarks | filter:{category:bookmarksListCtrl.getCurrentCategoryName()}">
     <button type="button" class="close" ng-click="bookmarksListCtrl.deleteBookmark(bookmark)">&times;</button>
     <button type="button" class="btn btn-link" ui-sref="eggly.categories.bookmarks.edit({ bookmarkId:bookmark.id})" ><span class="glyphicon glyphicon-pencil"></span>
     </button>

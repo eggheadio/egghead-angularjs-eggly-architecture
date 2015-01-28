@@ -29,10 +29,6 @@ angular.module('categories.bookmarks', [
                 bookmarksListCtrl.bookmarks = bookmarks;
             });
 
-        bookmarksListCtrl.isSelectedBookmark = function (bookmarkId) {
-            return $stateParams.bookmarkId == bookmarkId;
-        };
-
         bookmarksListCtrl.getCurrentCategory = CategoriesModel.getCurrentCategory;
         bookmarksListCtrl.getCurrentCategoryName = CategoriesModel.getCurrentCategoryName;
         bookmarksListCtrl.deleteBookmark = BookmarksModel.deleteBookmark;
