@@ -23,7 +23,7 @@ angular.module('eggly.models.bookmarks', [])
 
         model.getBookmarks = function () {
             // A much more concise way to write what was in the lesson
-            return (categories) ? $q.when(categories) : $http.get(URLS.FETCH).then(cacheCategories);
+            return (bookmarks) ? $q.when(bookmarks) : $http.get(URLS.FETCH).then(cacheBookmarks);
         };
 
         model.getBookmarkById = function (bookmarkId) {
