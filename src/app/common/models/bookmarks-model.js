@@ -22,17 +22,8 @@ angular.module('eggly.models.bookmarks', [])
         }
 
         model.getBookmarks = function () {
-            var deferred = $q.defer();
-
-            if (bookmarks) {
-                deferred.resolve(bookmarks)
-            } else {
-                $http.get(URLS.FETCH).then(function(bookmarks){
-                    deferred.resolve(cacheBookmarks(bookmarks));
-                });
-            }
-
-            return deferred.promise;
+            // A much more concise way to write what was in the lesson
+            return (categories) ? $q.when(categories) : $http.get(URLS.FETCH).then(cacheCategories);
         };
 
         model.getBookmarkById = function (bookmarkId) {
