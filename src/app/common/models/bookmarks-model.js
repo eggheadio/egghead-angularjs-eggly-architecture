@@ -22,17 +22,7 @@ angular.module('eggly.models.bookmarks', [])
         }
 
         model.getBookmarks = function () {
-            var deferred = $q.defer();
-
-            if (bookmarks) {
-                deferred.resolve(bookmarks)
-            } else {
-                $http.get(URLS.FETCH).then(function(bookmarks){
-                    deferred.resolve(cacheBookmarks(bookmarks));
-                });
-            }
-
-            return deferred.promise;
+            return (bookmarks) ? $q.when(bookmarks) : $http.get(URLS.FETCH).then(cacheBookmarks);
         };
 
         model.getBookmarkById = function (bookmarkId) {
