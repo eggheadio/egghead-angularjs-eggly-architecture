@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head lang="en">
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
+<h4>Editing {{editBookmarkCtrl.bookmark.title}}</h4>
 
-    </body>
-</html>
+<form class="edit-form" role="form" ng-submit="editBookmarkCtrl.updateBookmark(editBookmarkCtrl.editedBookmark)" novalidate>
+    <div class="form-group">
+        <label>Bookmark Title</label>
+        <input type="text" class="form-control" ng-model="editBookmarkCtrl.editedBookmark.title" placeholder="Enter title">
+    </div>
+    <div class="form-group">
+        <label>Bookmark URL</label>
+        <input type="text" class="form-control" ng-model="editBookmarkCtrl.editedBookmark.url" placeholder="Enter URL">
+    </div>
+    <button type="submit" class="btn btn-info btn-lg">Save</button>
+    <button type="button" class="btn btn-default btn-lg pull-right" ng-click="editBookmarkCtrl.cancelEditing()">Cancel</button>
+</form>
