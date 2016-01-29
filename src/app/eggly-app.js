@@ -53,7 +53,7 @@ angular.module('Eggly', [
             main.newBookmark = {
                 title: '',
                 url: '',
-                category: main.currentCategory
+                category: main.currentCategory.name
             };
         }
 
