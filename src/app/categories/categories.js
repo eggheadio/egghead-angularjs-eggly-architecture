@@ -18,7 +18,7 @@ angular.module('categories', [
             })
         ;
     })
-    .controller('CategoriesCtrl', function CategoriesCtrl($scope){
+    .controller('CategoriesCtrl', function CategoriesCtrl(){
 
     })
 ;
