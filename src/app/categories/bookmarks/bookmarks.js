@@ -17,7 +17,7 @@ angular.module('categories.bookmarks', [
             })
         ;
     })
-    .controller('BookmarksCtrl', function ($scope,$stateParams  ) {
+    .controller('BookmarksCtrl', function ($scope, $stateParams) {
         $scope.currentCategoryName = $stateParams.category;
     })
 ;

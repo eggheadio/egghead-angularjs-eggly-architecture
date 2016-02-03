@@ -13,15 +13,17 @@ angular.module('Eggly', [
 
         $urlRouterProvider.otherwise('/');
     })
-    .controller('MainCtrl', function ($scope) {
-        $scope.categories = [
+    .controller('MainCtrl', function () {
+        var main = this;
+
+        main.categories = [
             {"id": 0, "name": "Development"},
             {"id": 1, "name": "Design"},
             {"id": 2, "name": "Exercise"},
             {"id": 3, "name": "Humor"}
         ];
 
-        $scope.bookmarks = [
+        main.bookmarks = [
             {"id": 0, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development"},
             {"id": 1, "title": "Egghead.io", "url": "http://angularjs.org", "category": "Development"},
             {"id": 2, "title": "A List Apart", "url": "http://alistapart.com/", "category": "Design"},
@@ -33,41 +35,41 @@ angular.module('Eggly', [
             {"id": 8, "title": "Dump", "url": "http://dump.com", "category": "Humor"}
         ];
 
-        $scope.isCreating = false;
-        $scope.isEditing = false;
-        $scope.currentCategory = null;
-        $scope.editedBookmark = null;
+        main.isCreating = false;
+        main.isEditing = false;
+        main.currentCategory = null;
+        main.editedBookmark = null;
 
         function isCurrentCategory(category) {
-            return $scope.currentCategory !== null && category.name === $scope.currentCategory.name;
+            return main.currentCategory !== null && category.name === main.currentCategory.name;
         }
 
         function setCurrentCategory(category) {
-            $scope.currentCategory = category;
+            main.currentCategory = category;
 
             cancelCreating();
             cancelEditing();
         }
 
-        $scope.isCurrentCategory = isCurrentCategory;
-        $scope.setCurrentCategory = setCurrentCategory;
+        main.isCurrentCategory = isCurrentCategory;
+        main.setCurrentCategory = setCurrentCategory;
 
         function setEditedBookmark(bookmark) {
-            $scope.editedBookmark = angular.copy(bookmark);
+            main.editedBookmark = angular.copy(bookmark);
         }
 
         function isSelectedBookmark(bookmarkId) {
-            return $scope.editedBookmark !== null && $scope.editedBookmark.id === bookmarkId;
+            return main.editedBookmark !== null && main.editedBookmark.id === bookmarkId;
         }
 
-        $scope.setEditedBookmark = setEditedBookmark;
-        $scope.isSelectedBookmark = isSelectedBookmark;
+        main.setEditedBookmark = setEditedBookmark;
+        main.isSelectedBookmark = isSelectedBookmark;
 
         function resetCreateForm() {
-            $scope.newBookmark = {
+            main.newBookmark = {
                 title: '',
                 url: '',
-                category: $scope.currentCategory
+                category: main.currentCategory.name
             };
         }
 
@@ -75,69 +77,69 @@ angular.module('Eggly', [
         // CRUD
         //-------------------------------------------------------------------------------------------------
         function createBookmark(bookmark) {
-            bookmark.id = $scope.bookmarks.length;
-            $scope.bookmarks.push(bookmark);
+            bookmark.id = main.bookmarks.length;
+            main.bookmarks.push(bookmark);
 
             resetCreateForm();
         }
 
         function updateBookmark(bookmark) {
-            var index = _.findIndex($scope.bookmarks, function (b) {
+            var index = _.findIndex(main.bookmarks, function (b) {
                 return b.id == bookmark.id
             });
-            $scope.bookmarks[index] = bookmark;
+            main.bookmarks[index] = bookmark;
 
-            $scope.editedBookmark = null;
-            $scope.isEditing = false;
+            main.editedBookmark = null;
+            main.isEditing = false;
         }
 
         function deleteBookmark(bookmark) {
-            _.remove($scope.bookmarks, function (b) {
+            _.remove(main.bookmarks, function (b) {
                 return b.id == bookmark.id;
             });
         }
 
-        $scope.createBookmark = createBookmark;
-        $scope.updateBookmark = updateBookmark;
-        $scope.deleteBookmark = deleteBookmark;
+        main.createBookmark = createBookmark;
+        main.updateBookmark = updateBookmark;
+        main.deleteBookmark = deleteBookmark;
 
         //-------------------------------------------------------------------------------------------------
         // CREATING AND EDITING STATES
         //-------------------------------------------------------------------------------------------------
         function shouldShowCreating() {
-            return $scope.currentCategory && !$scope.isEditing;
+            return main.currentCategory && !main.isEditing;
         }
 
         function startCreating() {
-            $scope.isCreating = true;
-            $scope.isEditing = false;
+            main.isCreating = true;
+            main.isEditing = false;
             resetCreateForm();
         }
 
         function cancelCreating() {
-            $scope.isCreating = false;
+            main.isCreating = false;
         }
 
-        $scope.shouldShowCreating = shouldShowCreating;
-        $scope.startCreating = startCreating;
-        $scope.cancelCreating = cancelCreating;
+        main.shouldShowCreating = shouldShowCreating;
+        main.startCreating = startCreating;
+        main.cancelCreating = cancelCreating;
 
         function shouldShowEditing() {
-            return $scope.isEditing && !$scope.isCreating;
+            return main.isEditing && !main.isCreating;
         }
 
         function startEditing() {
-            $scope.isCreating = false;
-            $scope.isEditing = true;
+            main.isCreating = false;
+            main.isEditing = true;
         }
 
         function cancelEditing() {
-            $scope.isEditing = false;
-            $scope.editedBookmark = null;
+            main.isEditing = false;
+            main.editedBookmark = null;
         }
 
-        $scope.startEditing = startEditing;
-        $scope.cancelEditing = cancelEditing;
-        $scope.shouldShowEditing = shouldShowEditing;
+        main.startEditing = startEditing;
+        main.cancelEditing = cancelEditing;
+        main.shouldShowEditing = shouldShowEditing;
     })
 ;
