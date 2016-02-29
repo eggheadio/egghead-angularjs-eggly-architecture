@@ -1,44 +1,44 @@
 <h1>{{bookmarksListCtrl.currentCategoryName}}</h1>
-<div ng-class="{active: isSelectedBookmark(bookmark.id)}"  ng-repeat="bookmark in bookmarksListCtrl.bookmarks | filter:{category:currentCategory.name}">
-    <button type="button" class="close" ng-click="deleteBookmark(bookmark)">&times;</button>
-    <button type="button" class="btn btn-link" ng-click="setEditedBookmark(bookmark);startEditing();" ><span class="glyphicon glyphicon-pencil"></span>
+<div ng-class="{active: main.isSelectedBookmark(bookmark.id)}"  ng-repeat="bookmark in bookmarksListCtrl.bookmarks | filter:{category:main.currentCategory.name}">
+    <button type="button" class="close" ng-click="main.deleteBookmark(bookmark)">&times;</button>
+    <button type="button" class="btn btn-link" ng-click="main.setEditedBookmark(bookmark);main.startEditing();" ><span class="glyphicon glyphicon-pencil"></span>
     </button>
     <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
 </div>
 <hr/>
 <!-- CREATING -->
-<div ng-if="shouldShowCreating()">
-    <button type="button" class="btn btn-link" ng-click="startCreating()">
+<div ng-if="main.shouldShowCreating()">
+    <button type="button" class="btn btn-link" ng-click="main.startCreating()">
         <span class="glyphicon glyphicon-plus"></span>
         Create Bookmark
     </button>
-    <form class="create-form" ng-show="isCreating" role="form" ng-submit="createBookmark(newBookmark)" novalidate>
+    <form class="create-form" ng-show="isCreating" role="form" ng-submit="main.createBookmark(main.newBookmark)" novalidate>
         <div class="form-group">
-            <label for="newBookmarkTitle">Bookmark Title</label>
-            <input type="text" class="form-control" id="newBookmarkTitle" ng-model="newBookmark.title" placeholder="Enter title">
+            <label for="main.newBookmarkTitle">Bookmark Title</label>
+            <input type="text" class="form-control" id="newBookmarkTitle" ng-model="main.newBookmark.title" placeholder="Enter title">
         </div>
         <div class="form-group">
             <label for="newBookmarkURL">Bookmark URL</label>
-            <input type="text" class="form-control" id="newBookmarkURL" ng-model="newBookmark.url" placeholder="Enter URL">
+            <input type="text" class="form-control" id="newBookmarkURL" ng-model="main.newBookmark.url" placeholder="Enter URL">
         </div>
         <button type="submit" class="btn btn-info btn-lg">Create</button>
-        <button type="button" class="btn btn-default btn-lg pull-right" ng-click="cancelCreating()">Cancel</button>
+        <button type="button" class="btn btn-default btn-lg pull-right" ng-click="main.cancelCreating()">Cancel</button>
     </form>
 </div>
 <!-- EDITING -->
-<div ng-show="shouldShowEditing()">
-    <h4>Editing {{editedBookmark.title}}</h4>
+<div ng-show="main.shouldShowEditing()">
+    <h4>Editing {{main.editedBookmark.title}}</h4>
 
-    <form class="edit-form" role="form" ng-submit="updateBookmark(editedBookmark)" novalidate>
+    <form class="edit-form" role="form" ng-submit="main.updateBookmark(main.editedBookmark)" novalidate>
         <div class="form-group">
             <label>Bookmark Title</label>
-            <input type="text" class="form-control" ng-model="editedBookmark.title" placeholder="Enter title">
+            <input type="text" class="form-control" ng-model="main.editedBookmark.title" placeholder="Enter title">
         </div>
         <div class="form-group">
             <label>Bookmark URL</label>
-            <input type="text" class="form-control" ng-model="editedBookmark.url" placeholder="Enter URL">
+            <input type="text" class="form-control" ng-model="main.editedBookmark.url" placeholder="Enter URL">
         </div>
         <button type="submit" class="btn btn-info btn-lg">Save</button>
-        <button type="button" class="btn btn-default btn-lg pull-right" ng-click="cancelEditing()">Cancel</button>
+        <button type="button" class="btn btn-default btn-lg pull-right" ng-click="main.cancelEditing()">Cancel</button>
     </form>
 </div>
