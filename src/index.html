@@ -55,7 +55,7 @@
                 <div ng-show="main.shouldShowEditing()">
                     <h4>Editing {{main.editedBookmark.title}}</h4>
 
-                    <form class="edit-form" role="form" ng-submit="main.updateBookmark(main.editedhttps://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.jsBookmark)" novalidate>
+                    <form class="edit-form" role="form" ng-submit="main.updateBookmark(main.editedBookmark)" novalidate>
                         <div class="form-group">
                             <label>Bookmark Title</label>
                             <input type="text" class="form-control" ng-model="main.editedBookmark.title" placeholder="Enter title">
